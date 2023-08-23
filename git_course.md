@@ -34,3 +34,17 @@ git add 文件名
 git commit -m '描述必填'
 ```
 
+# 链接远程仓库
+
+```c
+git remote add 别名 链接
+//修改别名
+git remote rename 旧名 新名
+```
+
+# 提交到远程仓库
+
+```c
+git push 别名 master
+```
+
