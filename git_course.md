@@ -45,6 +45,6 @@ git remote rename 旧名 新名
 # 提交到远程仓库
 
 ```c
-git push 别名 master
+git push -u 别名 分支名
 ```
 
