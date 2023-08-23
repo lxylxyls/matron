@@ -20,5 +20,17 @@ git config --global user.name 'damer'
 git init
 ```
 
+# 提交缓存
 
+```c
+git add 文件名
+```
+
+
+
+# 向仓库提交缓存
+
+```c
+git commit -m '描述必填'
+```
 
