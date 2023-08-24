@@ -18,11 +18,17 @@
 
 浏览订单
 
+## 月嫂
+
+
+
 # 数据库设计
 
 ## 用户
 
-### 用户表(tb_users)
+### 用户表
+
+(tb_users)
 
 | 字段       | 类型       | 说明       |
 | ---------- | ---------- | ---------- |
@@ -35,12 +41,44 @@
 
 ## 月嫂
 
-### 月嫂表（tb_sku_matron）
+### 月嫂表
+
+（tb_sku_matron）
 
 | 字段          | 类型    | 说明         |
 | ------------- | ------- | ------------ |
 | id            | int     | 月嫂id       |
 | serve_type    | boolean | 服务状态     |
 | image_defualt | string  | 形象图片地址 |
-|               |         |              |
+| price         | int     | 价格         |
+| lever         | int     | 月嫂水平     |
+| hight         | int     | 身高cm       |
+| wight         | int     | 体重kg       |
+| educations    | string  | 学历         |
+| marriage      | string  | 婚姻         |
+| zodiac        | string  | 属相         |
+| age           | int     | 年龄         |
+| addres_id     | int     | 地址id       |
+| natiion       | string  | 民族         |
+
+## 月嫂表工作经历表
+
+（tb_matron_record）
+
+| 字段      | 类型   | 说明     |
+| --------- | ------ | -------- |
+| id        | int    | 记录id   |
+| matron_id | int    | 月嫂id   |
+| name      | string | 月嫂姓名 |
+
+## 月嫂家庭关系表
+
+(tb_matron_relations)
+
+| 字段      | 类型 | 说明   |
+| --------- | ---- | ------ |
+| id        | int  | 关系id |
+| matron_id | int  | 月嫂id |
+|           |      |        |
+|           |      |        |
 
