@@ -1,3 +1,19 @@
+# 安装git
+
+```c
+https://www.git-scm.com/download/win
+```
+
+# 配置环境变量
+
+在Path中配置环境变量
+
+```c
+C:\Program Files\Git\bin
+C:\Program Files\Git\mingw64\bin
+C:\Program Files\Git\mingw64\libexec\git-core
+```
+
 # 用户配置
 
 用户名配置
@@ -26,8 +42,6 @@ git init
 git add 文件名
 ```
 
-
-
 # 向仓库提交缓存
 
 ```c
@@ -35,6 +49,8 @@ git commit -m '描述必填'
 ```
 
 # 链接远程仓库
+
+链接指来至gtee、github的仓库链接
 
 ```c
 git remote add 别名 链接
@@ -46,5 +62,11 @@ git remote rename 旧名 新名
 
 ```c
 git push -u 别名 分支名
+```
+
+# 从仓库获取链接
+
+```c
+git pull 别名 分支名
 ```
 
