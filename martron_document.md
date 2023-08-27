@@ -138,7 +138,7 @@ list参数
 | training   | 培训评价   |
 | synthesis  | 综合评价   |
 
-工作经历
+工作经历work_list
 
 家庭成员
 
