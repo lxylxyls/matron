@@ -136,4 +136,4 @@ test.c
 
 [core]
 
-excludesfile=.ignore路径
+excludesfile=.ignore路径 windows中路径\换成/
