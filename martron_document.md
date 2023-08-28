@@ -47,6 +47,7 @@ list参数
 | name        | 月嫂姓名         |
 | serve_type  | 服务状态         |
 | price       | 价格             |
+| depaetment  | 所属门店         |
 
 数据库
 
@@ -140,19 +141,91 @@ list参数
 
 工作经历work_list
 
-家庭成员
+| 字段 | 说明     |
+| ---- | -------- |
+| date | 工作时间 |
+| work | 工作内容 |
+| pay  | 薪资     |
 
-作品展示
+家庭成员family_list
+
+| 字段      | 说明     |
+| --------- | -------- |
+| name      | 姓名     |
+| relations | 关系     |
+| unit      | 单位名称 |
+| job       | 职位名称 |
+
+作品展示display_list
+
+| 字段 | 说明     |
+| ---- | -------- |
+| id   | 图片id   |
+| src  | 图片地址 |
 
 数据库
 
-| 表名          | 备注                                       |
-| ------------- | ------------------------------------------ |
-| tb_sku_matron | 根据该表查询出对应数据进行分页返回相应数据 |
+| 表名                | 备注                                  |
+| ------------------- | ------------------------------------- |
+| tb_sku_matron       | 根据该表查询出对应月嫂的基本数据      |
+| tb_matron_address   | 根据matron_id查询对应地址             |
+| tb_matron_record    | 根据matron_id查询对应工作经历         |
+| tb_matron_relations | 根据matron_id查询对应家庭关系         |
+| tb_show_img         | 根据matron_id查询对应作品展示图片地址 |
+| tb_certificate_img  | 根据matron_id查询对应证书图片地址     |
+
+### 查询月嫂评论
+
+通过前端传送不同的matron_id，返回对应月嫂评论
+
+请求方式
+
+| 选项     | 方式                 |
+| -------- | -------------------- |
+| 请求放法 | get                  |
+| 路由     | /comment/<matron_id> |
+
+请求参数
+
+| 参数名    | 类型   | 是否必传 | 说明         |
+| --------- | ------ | -------- | ------------ |
+| matron_id | int    | true     | 月嫂等级     |
+| page_num  | string | true     | 当前页面     |
+| page_size | string | true     | 每页显示个数 |
+
+响应参数
+
+| 响应结果 | 响应类容 |
+| -------- | -------- |
+| code     | 状态码   |
+| errmsg   | 错误内容 |
+| list     | 列表内容 |
+| count    | 总页数   |
+
+list参数
+
+| 字段        | 说明         |
+| ----------- | ------------ |
+| id          | 评论id       |
+| img         | 图片地址列表 |
+| user_img    | 用户头像     |
+| user_name   | 用户名       |
+| comment     | 评论内容     |
+| create_date | 评论时间     |
+
+数据库
+
+| 表名            | 备注                                                         |
+| --------------- | ------------------------------------------------------------ |
+| tb_user_comment | 根据该表查询找到对应评论，得到user_id,type_img,评论内容和时间 |
+| tb_users        | 根据user_id查询用户名和头像                                  |
+| tb_comment_img  | 根据comment_id查询图片地址                                   |
 
 ### 预定月嫂
 
-### 加入预定册
+
+
+### 加入月嫂预定册
 
 ### 浏览订单
 
@@ -172,12 +245,13 @@ list参数
 
 (tb_users)
 
-| 字段       | 类型       | 说明       |
-| ---------- | ---------- | ---------- |
-| id         | int        | 用户ID     |
-| mobile     | vachar(10) | 用户手机号 |
-| openID     | vachar(20) | 用户openid |
-| crate_time | date       | 创建时间   |
+| 字段        | 类型       | 说明         |
+| ----------- | ---------- | ------------ |
+| id          | int        | 用户ID       |
+| mobile      | vachar(10) | 用户手机号   |
+| openID      | vachar(20) | 用户openid   |
+| defualt_img | string     | 用户头像地址 |
+| crate_time  | date       | 创建时间     |
 
 ### 用户评论表
 
@@ -191,6 +265,51 @@ list参数
 | type_img    | int    | 是否有图片 |
 | comment     | string | 评论内容   |
 | catate_time | date   | 评论时间   |
+
+type_img
+
+| id   | type   |
+| ---- | ------ |
+| 1    | 有图片 |
+| 0    | 无图片 |
+
+### 用户评论图片表
+
+tb_comment_img
+
+| 字段      | 说明     |
+| --------- | -------- |
+| id        | 图片id   |
+| coment_id | 评论id   |
+| src       | 图片地址 |
+
+### 用户订单表
+
+tb_user_order
+
+| 字段      | 说明         |
+| --------- | ------------ |
+| id        | 订单id       |
+| user_id   | 用户id       |
+| total_num | 预定月嫂总数 |
+| create_id | 创建时间     |
+| pay       | 支付金额     |
+|           |              |
+|           |              |
+|           |              |
+
+### 用户订单月嫂表
+
+tb_order_matron
+
+| 字段      | 说明   |
+| --------- | ------ |
+| id        | 表id   |
+| order_id  | 订单id |
+| matron_id | 月嫂id |
+|           |        |
+
+
 
 ## 月嫂
 
@@ -240,6 +359,8 @@ tb_matron_type
 | 0    | 服务中 |
 
 ###  月嫂地址表
+
+tb_matron_address
 
 | 字段    | 类型    | 说明     |
 | ------- | ------- | -------- |
@@ -301,6 +422,7 @@ tb_matron_type
 | --------- | ------ | -------- |
 | id        | int    | 评论id   |
 | matron_id | int    | 月嫂id   |
+| user_id   | int    | 用户id   |
 | type      | int    | 评论类型 |
 | comment   | string | 评论     |
 

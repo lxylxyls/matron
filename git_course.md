@@ -6,7 +6,7 @@ https://www.git-scm.com/download/win
 
 # 配置环境变量
 
-在Path中配置环境变量
+在Path中配置环境变量，默认安装路径
 
 ```c
 C:\Program Files\Git\bin
@@ -58,15 +58,59 @@ git remote add 别名 链接
 git remote rename 旧名 新名
 ```
 
+# 查看链接库
+
+```c
+git remote
+```
+
 # 提交到远程仓库
 
 ```c
 git push -u 别名 分支名
 ```
 
-# 从仓库获取链接
+# 从仓库同步文件
 
 ```c
 git pull 别名 分支名
+```
+
+# 查看分支
+
+```c
+git branch -a
+```
+
+# 切换分支
+
+```c
+git checkout 分支名
+```
+
+# 删除分支
+
+```c
+git branch -d 分支名
+```
+
+# 创建分支
+
+```c
+git branch -b 分支名
+```
+
+# 合并分支
+
+切换到主分支再执行该命令合并分支
+
+```c
+git merge 分支名
+```
+
+# 删除远程分支
+
+```c
+git push 别名 --delete 远程分支名
 ```
 
