@@ -120,6 +120,10 @@ git push 别名 --delete 远程分支名
 git rm -r 文件名
 ```
 
+执行该命令后需要 git commit -m ' ' 提交代码
+
+然后git push 别名 分支名 远程更新代码
+
 # 增加忽略文件
 
 创建一个*.ignore文件\*代表任意命名
@@ -128,12 +132,17 @@ git rm -r 文件名
 
 如：
 
+```c
 *.txt
 
 test.c
 
-找到隐藏文件.git 中的config 
+//找到隐藏文件.git 中的config 
 
 [core]
 
 excludesfile=.ignore路径 windows中路径\换成/
+```
+
+已经上传的文件需要git rm -r 删除后再更新同步
+
