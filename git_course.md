@@ -132,3 +132,8 @@ git rm -r 文件名
 
 test.c
 
+找到隐藏文件.git 中的config 
+
+[core]
+
+excludesfile=.ignore路径
