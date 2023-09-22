@@ -4,6 +4,8 @@
 https://www.git-scm.com/download/win
 ```
 
+下载好后所有选项都默认，如需更改配置环境变量时候更改为相应配置
+
 # 配置环境变量
 
 在Path中配置环境变量，默认安装路径
@@ -25,7 +27,7 @@ git config --global user.name 'damer'
 邮箱配置
 
 ```c
- git config --global user.email '403375160@qq.com'
+ git config --global user.email '。。。。。@qq.com'
 ```
 
 # 仓库创建
@@ -83,6 +85,8 @@ git branch -a
 ```
 
 # 切换分支
+
+当上传或者更新时，与远程仓库产生冲突时，可以先查看本地分支是否与远程分支相同，不同则用以下命令即可
 
 ```c
 git checkout 分支名
